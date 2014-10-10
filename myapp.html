@@ -1,0 +1,34 @@
+<head>
+  <title>myapp</title>
+    <style>
+        div {
+            float: left;
+            width: 40%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+  {{> game}}
+</body>
+
+<template name="game">
+
+    <marquee>
+       <blink>
+           <h1>The Game</h1>
+       </blink>
+    </marquee>
+    <div>
+        <h1> {{counter1.value}} </h1>
+        <button class="click1">Click</button>
+    </div>
+    <div>
+        <h1> {{counter2.value}} </h1>
+        <button class="click2">Click</button>
+    </div>
+    <article>
+        <button class="click3">Clear</button>
+    </article>
+</template>
