@@ -4,5 +4,15 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
+accounts-base
+accounts-google
+accounts-password
+accounts-ui
+google
+service-configuration
+iron:router@1.0.0-pre2
+mizzao:user-status
+mizzao:bootstrap-3
+tsega:bootstrap3-datetimepicker
+

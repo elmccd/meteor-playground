@@ -1,34 +1,102 @@
 <head>
   <title>myapp</title>
-    <style>
-        div {
-            float: left;
-            width: 40%;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
-  {{> game}}
+
 </body>
 
-<template name="game">
+<template name="Nav">
+<nav>
+    <ul>
+        <li>
+            <a href="/">Index</a>
+            <a href="/add">Add</a>
+            <a href="/games">Games</a>
+        </li>
+    </ul>
+    <h3>People online:</h3>
+    <ul>
+        {{#each personsOnline}}
+            <li>{{profile.name}} - {{ services.google.email }}</li>
+        {{/each}}
+    </ul>
+</nav>
+</template>
 
-    <marquee>
-       <blink>
-           <h1>The Game</h1>
-       </blink>
-    </marquee>
-    <div>
-        <h1> {{counter1.value}} </h1>
-        <button class="click1">Click</button>
-    </div>
-    <div>
-        <h1> {{counter2.value}} </h1>
-        <button class="click2">Click</button>
-    </div>
-    <article>
-        <button class="click3">Clear</button>
-    </article>
+<template name="Games">
+    {{> Nav }}
+    ddd
+    <ul>
+        <h1>Games</h1>
+        {{#each games}}
+            <li class="game-item">
+                <h3>Info</h3>
+                <li>
+                    <em>Date:</em>
+                    <span>{{date}}</span>
+                    <em>Comment:</em>
+                    <span>{{comment}}</span>
+                </li>
+                <h3>Players</h3>
+                <ul>
+                    {{#each players}}
+                        {{player.profile.name}}
+                    {{/each}}
+                </ul>
+                <button data-action="save" data-game-id="{{_id}}">Save me</button>
+                <button data-action="leave"  data-game-id="{{_id}}">Leave</button>
+            </li>
+        {{/each}}
+
+        <h1>Upcoming games</h1>
+        {{#each upcomingGames}}
+            <li class="game-item">
+                <h3>Info</h3>
+                <li>
+                    <em>Date:</em>
+                    <span>{{date}}</span>
+                    <em>Comment:</em>
+                    <span>{{comment}}</span>
+                </li>
+                <h3>Players</h3>
+                <ul>
+                    {{#each players}}
+                        {{player.profile.name}}
+                    {{/each}}
+                </ul>
+                <button data-action="save" data-game-id="{{_id}}">Save me</button>
+                <button data-action="leave"  data-game-id="{{_id}}">Leave</button>
+            </li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="Add">
+    {{> Nav }}
+    <form role="form">
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input data-datetime name="date" id="date" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <input name="comment"  id="comment"  type="text" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-submit">Add</button>
+    </form>
+</template>
+
+<template name="Index">
+    {{> Nav }}
+
+    {{#if user}}
+    <strong> {{user.profile.name}} </strong>
+    <button class="logout">Logout</button>
+    {{/if}}
+
+    {{#if user=false}}
+    <button class="login">Login</button>
+    {{/if}}
+
 </template>
