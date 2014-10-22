@@ -1,0 +1,25 @@
+<template name="layoutDefault">
+    <div class="container">
+
+        <aside class="user-info">
+          {{> userInfo}}
+        </aside>
+
+        <header class="header">
+            <ul class="nav nav-pills pull-right">
+              {{> nav}}
+
+            </ul>
+            <h3 class="text-muted">Codete Football</h3>
+        </header>
+
+        <section>
+          {{> yield}}
+        </section>
+
+        <footer class="footer">
+            <h4>Users online</h4>
+          {{> usersOnline}}
+        </footer>
+    </div>
+</template>

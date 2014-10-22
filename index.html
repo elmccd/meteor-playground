@@ -1,0 +1,54 @@
+<head>
+    <title>myapp</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="usersOnline">
+    <dl>
+        {{#each personsOnline}}
+            <dt>{{profile.name}}</dt>
+            <dd>({{ services.google.email }})</dd>
+        {{/each}}
+    </dl>
+</template>
+
+<template name="nav">
+    <li class="{{currentRoute '/'}}">
+        <a href="/">Upcoming games</a>
+    </li>
+    <li class="{{currentRoute '/add'}}">
+        <a href="/add">Add Game</a>
+    </li>
+    <li class="{{currentRoute '/archive'}}">
+        <a href="/archive">Archive</a>
+    </li>
+</template>
+
+<template name="upcomingGames">
+    {{#each games}}
+        {{> game}}
+    {{/each}}
+</template>
+
+<template name="archive">
+    {{#each games}}
+        {{> game}}
+    {{/each}}
+</template>
+
+<template name="userInfo">
+    {{#if user}}
+        <span>{{user.profile.name}}</span>
+        <button class="btn btn-warning btn-xs" data-action="logout">Logout</button>
+    {{else}}
+        <button class="btn btn-success btn-xs" data-action="login">Login</button>
+    {{/if}}
+</template>
+
+<template name="Index">
+    {{>upcomingGames }}
+    {{>chat }}
+</template>

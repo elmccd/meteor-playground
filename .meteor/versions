@@ -52,6 +52,7 @@ mizzao:timesync@0.2.2
 mizzao:user-status@0.6.2
 mobile-status-bar@1.0.0
 mongo@1.0.6
+mrt:moment@2.8.1
 npm-bcrypt@0.7.7
 oauth2@1.1.0
 oauth@1.1.0

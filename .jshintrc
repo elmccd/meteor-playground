@@ -19,6 +19,7 @@
   "indent": 2,
   "globals": {
     "$": false,
+    "moment": false,
     "console": false,
     "Router": false,
     "Meteor": false
